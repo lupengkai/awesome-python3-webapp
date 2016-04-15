@@ -1,4 +1,13 @@
-import www.config_default
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+'''
+Configuration
+'''
+
+__author__ = 'Michael Liao'
+
+import config_default
 
 class Dict(dict):
     '''
@@ -36,11 +45,11 @@ def toDict(d):
         D[k] = toDict(v) if isinstance(v, dict) else v
     return D
 
-configs = www.config_default.configs
+configs = config_default.configs
 
 try:
-    import www.config_override
-    configs = merge(configs, www.config_override.configs)
+    import config_override
+    configs = merge(configs, config_override.configs)
 except ImportError:
     pass
 
